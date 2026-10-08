@@ -148,9 +148,9 @@
 :root, .dark {
   --background: oklch(1 0 0);
   --foreground: oklch(0.32 0.025 165);
-  --primary: oklch(0.43 0.07 168);
+  --primary: oklch(0.51 0.145 151);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.965 0.012 160);
+  --secondary: oklch(0.967 0.003 265);
   --secondary-foreground: oklch(0.32 0.025 165);
   --muted: oklch(0.94 0.009 160);
   --muted-foreground: oklch(0.5 0.018 165);
@@ -158,11 +158,15 @@
   --accent-foreground: oklch(0.32 0.025 165);
   --border: oklch(0.87 0.018 160);
   --input: oklch(0.87 0.018 160);
-  --ring: oklch(0.43 0.07 168);
+  --ring: oklch(0.51 0.145 151);
+  --hero-shade: oklch(0.19 0.035 155 / 66%);
 }
 
 .page-width { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
-.brand-type { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; letter-spacing: 0; }
+.brand-type { font-family: "Lato", Arial, sans-serif; font-weight: 700; letter-spacing: 0; }
+.welcome-hero { min-height: 520px; }
+.hero-shade { background: var(--hero-shade); }
+@media (max-width: 480px) { .welcome-hero { min-height: 460px; } }
 .eyebrow { color: var(--primary); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0; }
 .nav-link { color: var(--muted-foreground); transition: color 150ms; }
 .nav-link:hover { color: var(--primary); }

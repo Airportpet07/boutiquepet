@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowUpRight, MapPin, PawPrint, Play, Quote } from "lucide-react";
+import { ArrowDown, ArrowUpRight, MapPin, Play, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/boutique-logo.png.asset.json";
+import welcome from "@/assets/boutique-welcome.webp.asset.json";
+import dogs from "@/assets/boutique-dogs.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,8 +32,7 @@ function Index() {
       <header className="border-b border-border">
         <div className="page-width flex flex-wrap items-center justify-between gap-5 py-6">
           <a href="#top" aria-label="Boutique Pet Boarding home" className="flex items-center gap-3 text-primary">
-            <PawPrint className="size-9" strokeWidth={1.5} />
-            <span className="brand-type text-2xl leading-none">boutique<span className="mt-1.5 block font-sans text-[10px] uppercase tracking-[0.2em]">Pet Boarding</span></span>
+            <img src={logo.url} alt="Boutique Pet Boarding" className="h-auto w-[230px] sm:w-[280px]" />
           </a>
           <nav aria-label="Main navigation" className="flex items-center gap-5 text-sm sm:gap-8">
             <a className="nav-link" href="#videos">Videos</a>
@@ -40,11 +42,21 @@ function Index() {
         </div>
       </header>
       <main id="top">
+        <section className="welcome-hero relative isolate flex items-center overflow-hidden">
+          <img src={welcome.url} alt="Boutique Pet Boarding illustration of a welcoming host and dogs beside a swimming pool" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" fetchPriority="high" />
+          <div className="hero-shade absolute inset-0 -z-10" />
+          <div className="page-width py-16 text-primary-foreground">
+            <p className="mb-5 text-sm font-semibold uppercase">Perth Airport · Western Australia</p>
+            <h1 className="max-w-xl text-4xl font-bold leading-tight sm:text-6xl">Boutique Pet Boarding</h1>
+            <p className="mt-6 max-w-md text-lg leading-relaxed">Luxury dog boarding in Perth.</p>
+            <Button asChild size="lg" className="mt-8"><a href="#videos">Meet Boutique <ArrowDown /></a></Button>
+          </div>
+        </section>
         <section id="videos" className="page-width pb-16 pt-12 sm:pb-20 sm:pt-16">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-5 sm:mb-10">
             <div>
               <p className="eyebrow mb-4">Perth Airport · Western Australia</p>
-              <h1 className="brand-type max-w-3xl text-4xl leading-[1.12] text-primary sm:text-6xl">Boutique Pet Boarding</h1>
+              <h2 className="brand-type max-w-3xl text-4xl leading-[1.12] text-primary sm:text-5xl">Life at Boutique</h2>
               <p className="mt-4 text-lg text-muted-foreground">A little glimpse of life at Boutique.</p>
             </div>
             <Button asChild variant="link" className="h-auto px-0"><a href="#reviews">Words from our pet families <ArrowDown /></a></Button>
@@ -56,12 +68,15 @@ function Index() {
                   <iframe className="h-full w-full border-0" src={`https://www.youtube-nocookie.com/embed/${id}`} title={`Boutique Pet Boarding video ${index + 1}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
                 </div>
                 <div className="mt-4 flex items-center justify-between gap-3 border-b border-border pb-4">
-                  <span className="flex items-center gap-2 text-sm text-muted-foreground"><Play className="size-3.5 text-primary" /> Boutique moments <span className="text-xs">0{index + 1}</span></span>
+                  <span className="flex items-center gap-2 text-sm text-muted-foreground"><Play className="size-3.5 text-primary" /> {index === 0 ? "Boutique Intro" : "Boutique Song"}</span>
                   <Button variant="link" asChild className="h-auto px-0 text-xs"><a href={`https://youtu.be/${id}`} target="_blank" rel="noopener noreferrer">Watch on YouTube <ArrowUpRight /></a></Button>
                 </div>
               </article>
             ))}
           </div>
+        </section>
+        <section className="page-width pb-14 sm:pb-20">
+          <img src={dogs.url} alt="Two white dogs enjoying their stay at Boutique Pet Boarding" className="mx-auto max-h-[620px] w-full object-contain" loading="lazy" />
         </section>
         <section id="reviews" className="bg-secondary py-14 sm:py-20">
           <div className="page-width">
