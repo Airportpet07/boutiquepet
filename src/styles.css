@@ -140,7 +140,7 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Lato", Arial, sans-serif;
+    font-family: "Instrument Sans", Arial, sans-serif;
     letter-spacing: 0;
   }
 }
@@ -163,7 +163,7 @@
 }
 
 .page-width { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
-.brand-type { font-family: "Lato", Arial, sans-serif; font-weight: 700; letter-spacing: 0; }
+.brand-type { font-family: "Instrument Sans", Arial, sans-serif; font-weight: 700; letter-spacing: 0; }
 .welcome-hero { min-height: 520px; }
 .hero-shade { background: var(--hero-shade); }
 @media (max-width: 480px) { .welcome-hero { min-height: 460px; } }

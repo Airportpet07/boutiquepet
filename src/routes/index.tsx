@@ -4,13 +4,20 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/boutique-logo.png.asset.json";
 import welcome from "@/assets/boutique-welcome.webp.asset.json";
 import dogs from "@/assets/boutique-dogs.webp.asset.json";
+import garden from "@/assets/dog-garden.webp.asset.json";
+import cavalier from "@/assets/dog-cavalier.webp.asset.json";
+import outdoors from "@/assets/dogs-outdoors.webp.asset.json";
+import sofa from "@/assets/dog-sofa.webp.asset.json";
+import bench from "@/assets/dog-bench.webp.asset.json";
+import relaxing from "@/assets/dog-relaxing.webp.asset.json";
+import dachshund from "@/assets/dog-dachshund.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Boutique Pet Boarding | Videos, Reviews & Location" },
-      { name: "description", content: "Watch Boutique Pet Boarding videos, read reviews from Nica and Mea, and find us at 32 Boud Ave, Perth Airport." },
-      { property: "og:title", content: "Boutique Pet Boarding | Videos, Reviews & Location" },
+      { title: "Luxury Dog Boarding in Perth - Boutique Pet Boarding" },
+      { name: "description", content: "Experience premium care and comfort for your beloved dog at Boutique Pet Boarding. Our luxury facilities ensure a safe and joyful stay tailored to your pet's needs." },
+      { property: "og:title", content: "Luxury Dog Boarding in Perth - Boutique Pet Boarding" },
       { property: "og:description", content: "A closer look at Boutique Pet Boarding, with customer reviews and directions to our Perth Airport location." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -20,6 +27,16 @@ export const Route = createFileRoute("/")({
 });
 
 const videos = ["pRzRGvQveZ8", "unqOCzqnSDo"];
+const gallery = [
+  { asset: dogs, alt: "Two white dogs enjoying their stay indoors" },
+  { asset: garden, alt: "Black dog relaxing on the lawn with a turquoise toy" },
+  { asset: cavalier, alt: "Cavalier resting on the grass with a yellow toy" },
+  { asset: outdoors, alt: "Two white dogs relaxing together outdoors" },
+  { asset: sofa, alt: "A shaggy brown dog resting on a sofa" },
+  { asset: bench, alt: "White dog sitting on a garden bench" },
+  { asset: relaxing, alt: "Dachshund enjoying a belly-up rest" },
+  { asset: dachshund, alt: "Dachshund looking up at the camera" },
+];
 const reviews = [
   { name: "Nica", text: "Boutique pet boarding spoiled Coco - thank you Boutique for giving my boy the best time! Love, love love. Highly recommend!" },
   { name: "Mea", text: "I have been impressed with the premium service and the loving environment at Boutique Pet Boarding. My pup has been here many times and looks forward to his time here! Lovely homestay environment!" },
@@ -35,6 +52,7 @@ function Index() {
             <img src={logo.url} alt="Boutique Pet Boarding" className="h-auto w-[230px] sm:w-[280px]" />
           </a>
           <nav aria-label="Main navigation" className="flex items-center gap-5 text-sm sm:gap-8">
+            <a className="nav-link" href="#gallery">Gallery</a>
             <a className="nav-link" href="#videos">Videos</a>
             <a className="nav-link" href="#reviews">Reviews</a>
             <Button asChild variant="outline" className="rounded-none"><a href="#location">Find us <MapPin /></a></Button>
@@ -48,8 +66,8 @@ function Index() {
           <div className="page-width py-16 text-primary-foreground">
             <p className="mb-5 text-sm font-semibold uppercase">Perth Airport · Western Australia</p>
             <h1 className="max-w-xl text-4xl font-bold leading-tight sm:text-6xl">Boutique Pet Boarding</h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed">Luxury dog boarding in Perth.</p>
-            <Button asChild size="lg" className="mt-8"><a href="#videos">Meet Boutique <ArrowDown /></a></Button>
+            <p className="mt-6 max-w-lg text-lg leading-relaxed">Experience premium care and comfort for your beloved dog at Boutique Pet Boarding. Our luxury facilities ensure a safe and joyful stay tailored to your pet's needs. Book now to give your dog a five-star boarding experience.</p>
+            <Button asChild size="lg" className="mt-8"><a href="tel:0459668132">Call 0459 668 132 <ArrowUpRight /></a></Button>
           </div>
         </section>
         <section id="videos" className="page-width pb-16 pt-12 sm:pb-20 sm:pt-16">
@@ -57,7 +75,7 @@ function Index() {
             <div>
               <p className="eyebrow mb-4">Perth Airport · Western Australia</p>
               <h2 className="brand-type max-w-3xl text-4xl leading-[1.12] text-primary sm:text-5xl">Life at Boutique</h2>
-              <p className="mt-4 text-lg text-muted-foreground">A little glimpse of life at Boutique.</p>
+              <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted-foreground">Discover the unparalleled comfort and care at Boutique Pet Boarding, Perth's premier luxury dog boarding service. Watch to see how we pamper your pets in a safe, loving environment. Your dog's happiness and well-being are our top priorities.</p>
             </div>
             <Button asChild variant="link" className="h-auto px-0"><a href="#reviews">Words from our pet families <ArrowDown /></a></Button>
           </div>
@@ -75,8 +93,11 @@ function Index() {
             ))}
           </div>
         </section>
-        <section className="page-width pb-14 sm:pb-20">
-          <img src={dogs.url} alt="Two white dogs enjoying their stay at Boutique Pet Boarding" className="mx-auto max-h-[620px] w-full object-contain" loading="lazy" />
+        <section id="gallery" className="page-width pb-14 sm:pb-20">
+          <h2 className="brand-type mb-8 text-3xl text-primary sm:text-4xl">Gallery</h2>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {gallery.map(({asset, alt}) => <img key={asset.url} src={asset.url} alt={alt} className="aspect-[3/4] w-full object-cover" loading="lazy" />)}
+          </div>
         </section>
         <section id="reviews" className="bg-secondary py-14 sm:py-20">
           <div className="page-width">
