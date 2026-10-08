@@ -6,3 +6,4 @@
 - [ ] Add the uploaded logo and photos.
 - [ ] Use the saved website to match the supplied branding and content.
 - [ ] Verify the updated page.
+- [ ] Add the seven additional dog photos to the gallery.
