@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowUpRight, MapPin, Play, Quote } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Instagram, MapPin, Play, Quote } from "lucide-react";
+import { EnquiryAssistant } from "@/components/EnquiryAssistant";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/boutique-logo.png.asset.json";
 import welcome from "@/assets/boutique-welcome.webp.asset.json";
@@ -41,6 +42,7 @@ const reviews = [
   { name: "Nica", text: "Boutique pet boarding spoiled Coco - thank you Boutique for giving my boy the best time! Love, love love. Highly recommend!" },
   { name: "Mea", text: "I have been impressed with the premium service and the loving environment at Boutique Pet Boarding. My pup has been here many times and looks forward to his time here! Lovely homestay environment!" },
 ];
+const instagram = "https://www.instagram.com/boutique_pet07";
 const directions = "https://www.google.com/maps/dir//Boutique+Pet+Boarding,+32+Boud+Ave,+Perth+Airport+WA+6105/@-31.965184,115.8643712,11z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2a32b9497195801b:0x46501b466831e3f6!2m2!1d115.9544927!2d-31.9378512?entry=ttu&g_ep=EgoyMDI2MTAwNS4wIKXMDSoASAFQAw%3D%3D";
 
 function Index() {
@@ -55,6 +57,8 @@ function Index() {
             <a className="nav-link" href="#gallery">Gallery</a>
             <a className="nav-link" href="#videos">Videos</a>
             <a className="nav-link" href="#reviews">Reviews</a>
+            <a className="nav-link" href="#enquire">Enquire</a>
+            <a className="nav-link" href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram @boutique_pet07"><Instagram className="size-5" /></a>
             <Button asChild variant="outline" className="rounded-none"><a href="#location">Find us <MapPin /></a></Button>
           </nav>
         </div>
@@ -114,6 +118,11 @@ function Index() {
             </div>
           </div>
         </section>
+        <section id="enquire" className="page-width py-14 sm:py-20">
+          <p className="eyebrow mb-4">Booking enquiry</p>
+          <h2 className="brand-type mb-10 text-3xl text-primary sm:text-4xl">Tell us about your pet.</h2>
+          <EnquiryAssistant />
+        </section>
         <section id="location" className="page-width grid gap-8 py-14 sm:py-20 md:grid-cols-[1fr_1.6fr] md:gap-16">
           <div className="self-center">
             <p className="eyebrow mb-4">Find us</p>
@@ -125,7 +134,7 @@ function Index() {
         </section>
       </main>
       <footer className="border-t border-border bg-secondary">
-        <div className="page-width flex flex-wrap items-center justify-between gap-4 py-7 text-sm text-muted-foreground"><span className="brand-type text-xl text-primary">Boutique Pet Boarding</span><span>Perth Airport, Western Australia</span></div>
+        <div className="page-width flex flex-wrap items-center justify-between gap-4 py-7 text-sm text-muted-foreground"><span className="brand-type text-xl text-primary">Boutique Pet Boarding</span><a href={instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary"><Instagram className="size-4" /> @boutique_pet07</a><span>Perth Airport, Western Australia</span></div>
       </footer>
     </div>
   );
