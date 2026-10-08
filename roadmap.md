@@ -7,3 +7,5 @@
 - [x] Use the saved website to match the supplied branding and content.
 - [x] Verify the updated page.
 - [x] Add the seven additional dog photos to the gallery.
+- [x] Add Instagram link (boutique_pet07).
+- [x] Add AI booking enquiry helper.
